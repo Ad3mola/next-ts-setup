@@ -5,21 +5,21 @@ import { EyeOpen } from 'ui/svgs/EyeOpen';
 import { PasswordButton } from './index.styled';
 
 type UsePasswordEye = () => {
-  PasswordEye: () => JSX.Element;
-  isPasswordEyeOpen: boolean;
+	PasswordEye: () => JSX.Element;
+	isPasswordEyeOpen: boolean;
 };
 
 export const usePasswordEye: UsePasswordEye = () => {
-  const [isEyeOpen, setIsEyeOpen] = useState(false);
+	const [isEyeOpen, setIsEyeOpen] = useState(false);
 
-  const IconButton = () => (
-    <PasswordButton onClick={() => setIsEyeOpen((prev) => !prev)}>
-      {isEyeOpen && <EyeOpen />}
-      {!isEyeOpen && <EyeClosed />}
-    </PasswordButton>
-  );
+	const IconButton = () => (
+		<PasswordButton onClick={() => setIsEyeOpen((prev) => !prev)}>
+			{isEyeOpen && <EyeOpen />}
+			{!isEyeOpen && <EyeClosed />}
+		</PasswordButton>
+	);
 
-  return { PasswordEye: IconButton, isPasswordEyeOpen: isEyeOpen };
+	return { PasswordEye: IconButton, isPasswordEyeOpen: isEyeOpen };
 };
 
 /**

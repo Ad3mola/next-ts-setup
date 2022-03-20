@@ -4,16 +4,16 @@ import { ThemeProvider } from 'styled-components';
 import { theme as defaultTheme } from '../styles/theme';
 
 interface RenderOptionsWithThemeIncluded extends Omit<RenderOptions, 'queries'> {
-  theme: typeof defaultTheme;
+	theme: typeof defaultTheme;
 }
 
 const customRender = (
-  ui: React.ReactElement,
-  { theme = defaultTheme, ...renderOptions }: RenderOptionsWithThemeIncluded
+	ui: React.ReactElement,
+	{ theme = defaultTheme, ...renderOptions }: RenderOptionsWithThemeIncluded
 ): ReturnType<typeof render> => {
-  const Wrapper = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+	const Wrapper = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 
-  return render(ui, { wrapper: Wrapper, ...renderOptions });
+	return render(ui, { wrapper: Wrapper, ...renderOptions });
 };
 
 // re-export everything

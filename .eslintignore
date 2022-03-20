@@ -7,4 +7,3 @@ app
 data
 scripts
 public/**/*
-Gruntfile.js

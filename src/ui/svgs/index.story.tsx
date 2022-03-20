@@ -39,92 +39,92 @@ import { Warning } from './Warning';
 
 //  [START] story utils
 const Div = styled.div`
-  text-align: center;
-  display: flex;
-  color: black;
-  flex-wrap: wrap;
+	text-align: center;
+	display: flex;
+	color: black;
+	flex-wrap: wrap;
 
-  .cell {
-    padding: 4px;
-    border: 1px solid gray;
-    border-radius: 4px;
-    margin: 0.25rem;
-  }
+	.cell {
+		padding: 4px;
+		border: 1px solid gray;
+		border-radius: 4px;
+		margin: 0.25rem;
+	}
 
-  .cell > .icon-viewer {
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  & svg {
-    fill: black;
-    color: black;
-    height: 24px;
-    width: 24px;
-  }
+	.cell > .icon-viewer {
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	& svg {
+		fill: black;
+		color: black;
+		height: 24px;
+		width: 24px;
+	}
 `;
 
 const AllIcons = ({ children }) => (
-  <Div>
-    {Children.toArray(children).map((icon, index) => (
-      <div key={index} className="cell">
-        <div className="icon-viewer">{icon}</div>
-        {/* 
+	<Div>
+		{Children.toArray(children).map((icon, index) => (
+			<div key={index} className="cell">
+				<div className="icon-viewer">{icon}</div>
+				{/* 
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment 
           // @ts-ignore */}
-        <div>{icon?.type?.displayName}</div>
-      </div>
-    ))}
-  </Div>
+				<div>{icon?.type?.displayName}</div>
+			</div>
+		))}
+	</Div>
 );
 // [END] story utils
 
 export default {
-  title: 'Atoms/Svgs'
+	title: 'Atoms/Svgs'
 };
 
 const Template = () => {
-  return (
-    <AllIcons>
-      {/* Keep adding the components like below, it will showup on the storybook with its display name. */}
-      <AngleDownIcon />
-      <Arrow />
-      <BagIcon />
-      <CancelIcon />
-      <CartIcon />
-      <Clock />
-      <CloseIcon />
-      <DeleteIcon />
-      <Discover />
-      <DocumentIcon />
-      <Envelope />
-      <EyeClosed />
-      <EyeOpen />
-      <FilledStarIcon />
-      <FlagIcon />
-      <Flash />
-      <ForwardIcon />
-      <HeartIcon />
-      <HeartMeter />
-      <ImageIcon />
-      <InfoIcon />
-      <Like />
-      <LoadingIcon />
-      <MagnifyingGlass />
-      <MenuIcon />
-      <Message />
-      <MinusIcon />
-      <Mobile />
-      <Percent />
-      <PlusIcon />
-      <RealStarIcon />
-      <RefreshIcon />
-      <Shield />
-      <StarIcon />
-      <Warning />
-    </AllIcons>
-  );
+	return (
+		<AllIcons>
+			{/* Keep adding the components like below, it will showup on the storybook with its display name. */}
+			<AngleDownIcon />
+			<Arrow />
+			<BagIcon />
+			<CancelIcon />
+			<CartIcon />
+			<Clock />
+			<CloseIcon />
+			<DeleteIcon />
+			<Discover />
+			<DocumentIcon />
+			<Envelope />
+			<EyeClosed />
+			<EyeOpen />
+			<FilledStarIcon />
+			<FlagIcon />
+			<Flash />
+			<ForwardIcon />
+			<HeartIcon />
+			<HeartMeter />
+			<ImageIcon />
+			<InfoIcon />
+			<Like />
+			<LoadingIcon />
+			<MagnifyingGlass />
+			<MenuIcon />
+			<Message />
+			<MinusIcon />
+			<Mobile />
+			<Percent />
+			<PlusIcon />
+			<RealStarIcon />
+			<RefreshIcon />
+			<Shield />
+			<StarIcon />
+			<Warning />
+		</AllIcons>
+	);
 };
 
 export const Icons = Template.bind({});
