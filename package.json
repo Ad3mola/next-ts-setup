@@ -130,6 +130,7 @@
 		"./**/*.{js,jsx,ts,tsx}": [
 			"npm run lint:styled",
 			"npm run lint",
+			"npm run type-check",
 			"git add"
 		],
 		"/src/**/*.scss": [
