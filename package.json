@@ -1,8 +1,8 @@
 {
-	"name": "ecom",
+	"name": "next-ts-setup",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://www.inxeption.com/",
+	"homepage": "/",
 	"dependencies": {
 		"@apollo/client": "^3.3.4",
 		"@hookform/resolvers": "^2.6.0",
