@@ -13,7 +13,7 @@
 		"noImplicitAny": false,
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"jsx": "react",
+		"jsx": "react-jsx",
 		"baseUrl": "src",
 		"types": ["node", "jest", "jest-styled-components", "@types/testing-library__jest-dom"],
 		"allowSyntheticDefaultImports": true,

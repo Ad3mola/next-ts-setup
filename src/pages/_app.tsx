@@ -3,7 +3,7 @@ import './main.css';
 import { AppProps } from 'next/app';
 import { MediaQueryProvider } from 'providers/MediaQueryProvider';
 import { ModalProvider } from 'providers/ModalProvider';
-import React from 'react';
+// import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { GlobalStyle } from '../styles/global';
