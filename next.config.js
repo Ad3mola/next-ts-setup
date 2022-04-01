@@ -1,7 +1,4 @@
 module.exports = {
-	images: {
-		domains: ['www.inxeption.com']
-	},
 	webpack: (config, { isServer }) => {
 		if (isServer) {
 			// require('./scripts/generate-sitemap');
