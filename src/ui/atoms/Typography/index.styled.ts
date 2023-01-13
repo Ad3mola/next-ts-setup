@@ -23,27 +23,12 @@ export interface TypographyProps {
 	align?: 'center' | 'left' | 'right';
 	uppercase?: boolean;
 	noMargin?: boolean;
-	color?:
-		| 'inherit'
-		| keyof Pick<
-				DefaultTheme['colors'],
-				| 'white'
-				| 'lightBlue'
-				| 'gray'
-				| 'cottenSeed'
-				| 'merlin'
-				| 'hoki'
-				| 'shuttleGray'
-				| 'freeSpeechRed'
-		  >;
-	size?: keyof Pick<
-		DefaultTheme['fontSizes'],
-		'xs' | 'sm' | '5xl' | 'lg' | 'md' | 'xl' | '2xl' | '4xl'
-	>;
-	font?: keyof Pick<DefaultTheme['fonts'], 'primary'>;
+	color?: 'inherit' | keyof DefaultTheme['colors'];
+	size?: keyof DefaultTheme['fontSizes'];
+	font?: keyof DefaultTheme['fonts'];
 
 	// don't include extra-bold since Roboto doesn't have the font-weight of 800
-	fontWeight?: keyof Pick<DefaultTheme['fontWeights'], 'bold' | 'black'>;
+	fontWeight?: keyof DefaultTheme['fontWeights'];
 
 	italic?: boolean;
 }

@@ -11,7 +11,7 @@ export const MediaQueryContext = React.createContext<MediaQueryContextValue>(
 	{} as MediaQueryContextValue
 );
 
-export const MediaQueryProvider: React.FC = ({ children }: { children: React.ReactNode }) => {
+export const MediaQueryProvider = ({ children }: { children: React.ReactNode }): JSX.Element => {
 	// Media queries from theme [82em, 52em, 40em] 1312px, 832px, 640px
 	const isMobile = useMedia<boolean>(['(max-width: 640px)'], [true], false);
 	const isTablet = useMedia<boolean>(['(max-width: 832px)'], [true], false);

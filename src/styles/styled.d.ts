@@ -15,8 +15,46 @@ declare module 'styled-components' {
 	}
 
 	export interface ColorType {
-		primary: string;
-		secondary: string;
+		neutral50: string;
+		neutral100: string;
+		neutral200: string;
+		neutral300: string;
+		neutral400: string;
+		neutral500: string;
+		neutral600: string;
+		neutral700: string;
+		neutral800: string;
+		neutral900: string;
+		primary50: string;
+		primary100: string;
+		primary200: string;
+		primary300: string;
+		primary400: string;
+		primary500: string;
+		primary600: string;
+		primary700: string;
+		primary800: string;
+		primary900: string;
+		success50: string;
+		success100: string;
+		success200: string;
+		success300: string;
+		success400: string;
+		success500: string;
+		success600: string;
+		success700: string;
+		success800: string;
+		success900: string;
+		warning50: string;
+		warning100: string;
+		warning200: string;
+		warning300: string;
+		warning400: string;
+		warning500: string;
+		warning600: string;
+		warning700: string;
+		warning800: string;
+		warning900: string;
 		nero: string;
 		white: string;
 		black: string;
@@ -41,12 +79,21 @@ declare module 'styled-components' {
 		grayish: string;
 		whitish: string;
 		lightGray: string;
+		pink: string;
 		brightBlue: string;
 		light: string;
 		darkGray: string;
-		online: string;
-		offline: string;
-		me: string;
+		lightRed: string;
+		darkRed: string;
+		volcanoGray: string;
+		lighterRed: string;
+		lightVolcanoGray: string;
+		mainGray: string;
+		darkCyan: string;
+		reddish: string;
+		blackGray: string;
+		brightPink: string;
+		pinkish: string;
 	}
 
 	export interface GradientType {
@@ -66,8 +113,6 @@ declare module 'styled-components' {
 		'2xl': string;
 		'3xl': string;
 		'4xl': string;
-		'5xl': string;
-		'6xl': string;
 	}
 
 	export interface FontWeightType {
@@ -102,22 +147,17 @@ declare module 'styled-components' {
 	}
 
 	export interface MediaQueryType {
-		small: (args: TemplateStringsArray) => string;
-		medium: (args: TemplateStringsArray) => string;
-		large: (args: TemplateStringsArray) => string;
-		up: (
-			breakpoint: string,
-			vertical?: boolean
-		) => (args: TemplateStringsArray) => FlattenSimpleInterpolation;
-		down: (
-			breakpoint: string,
-			vertical?: boolean
-		) => (args: TemplateStringsArray) => FlattenSimpleInterpolation;
+		xs: (...args: any) => string;
+		small: (...args: any) => string;
+		medium: (...args: any) => string;
+		large: (...args: any) => string;
+		up: (breakpoint: string, vertical?: boolean) => (...args: any) => FlattenSimpleInterpolation;
+		down: (breakpoint: string, vertical?: boolean) => (...args: any) => FlattenSimpleInterpolation;
 		between: (
 			breakpointMin: string,
 			breakpointMax: string,
 			vertical?: boolean
-		) => (args: TemplateStringsArray) => FlattenSimpleInterpolation;
+		) => (...args: any) => FlattenSimpleInterpolation;
 	}
 
 	export interface SpaceType {

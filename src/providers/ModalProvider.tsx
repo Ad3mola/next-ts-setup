@@ -14,7 +14,7 @@ interface ModalContextValue {
 
 export const ModalContext = React.createContext<ModalContextValue>({} as ModalContextValue);
 
-export const ModalProvider: React.FC = ({ children }: { children: React.ReactNode }) => {
+export const ModalProvider = ({ children }: { children: React.ReactNode }): JSX.Element => {
 	// set state with the passed modalName and toggle the boolean value against that modalName
 	// in the modals state if showModal is called from the consuming components
 	const [modals, dispatch] = useReducer(

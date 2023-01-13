@@ -29,11 +29,13 @@ module.exports = {
 		'plugin:prettier/recommended'
 	],
 	rules: {
+		'no-console': 2,
 		'prettier/prettier': ['error', {}, { usePrettierrc: true }],
 		'react/react-in-jsx-scope': 'off',
 		'react/prop-types': 'off',
 		'no-use-before-define': 'off',
 		'@typescript-eslint/no-use-before-define': ['error'],
+		'@typescript-eslint/no-unused-vars': ['error'],
 		'@typescript-eslint/explicit-function-return-type': 'off',
 		'simple-import-sort/imports': 'error',
 		'jsx-a11y/anchor-is-valid': [

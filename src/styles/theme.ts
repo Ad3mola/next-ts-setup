@@ -8,13 +8,14 @@ import {
 	TransitionType
 } from 'styled-components';
 
-// These values will be used to generate mobile - first(i.e. min - width) media queries, which can then be used to apply responsive styles.
-const breakpoints = ['40em', '52em', '82em'];
+// These values will be used to generate media queries, which can then be used to apply responsive styles.
+const breakpoints = ['320.98px', '576.98px', '768.98px', '1024.98px'];
 
 const queries = {
-	small: `@media screen and (min-width: ${breakpoints[0]})`,
-	medium: `@media screen and (min-width: ${breakpoints[1]})`,
-	large: `@media screen and (min-width: ${breakpoints[2]})`
+	xs: `@media screen and (max-width: ${breakpoints[0]})`,
+	small: `@media screen and (max-width: ${breakpoints[1]})`,
+	medium: `@media screen and (max-width: ${breakpoints[2]})`,
+	large: `@media screen and (max-width: ${breakpoints[3]})`
 };
 
 // Generate media query utils used in components. props.theme.[small|medium|large]
@@ -58,25 +59,32 @@ export const media: MediaQueryType = Object.keys(queries).reduce((acc, label) =>
     `}
   `;
  */
-const up = (breakpoint: string, vertical = false) => (...args: [TemplateStringsArray]) => css`
-	@media screen and (min-${vertical ? 'height' : 'width'}: ${breakpoint}) {
-		${css(...args)};
-	}
-`;
-const down = (breakpoint: string, vertical = false) => (...args: [TemplateStringsArray]) => css`
-	@media screen and (max-${vertical ? 'height' : 'width'}: ${breakpoint}) {
-		${css(...args)};
-	}
-`;
-const between = (breakpointMin, breakpointMax, vertical = false) => (
-	...args: [TemplateStringsArray]
-) => css`
-	@media screen and (max-${vertical ? 'height' : 'width'}: ${breakpointMax}) and (min-${vertical
-			? 'height'
-			: 'width'}: ${breakpointMin}) {
-		${css(...args)};
-	}
-`;
+const up =
+	(breakpoint: string, vertical = false) =>
+	(...args: [TemplateStringsArray]) =>
+		css`
+			@media screen and (min-${vertical ? 'height' : 'width'}: ${breakpoint}) {
+				${css(...args)};
+			}
+		`;
+const down =
+	(breakpoint: string, vertical = false) =>
+	(...args: [TemplateStringsArray]) =>
+		css`
+			@media screen and (max-${vertical ? 'height' : 'width'}: ${breakpoint}) {
+				${css(...args)};
+			}
+		`;
+const between =
+	(breakpointMin, breakpointMax, vertical = false) =>
+	(...args: [TemplateStringsArray]) =>
+		css`
+			@media screen and (max-${vertical ? 'height' : 'width'}: ${breakpointMax}) and (min-${vertical
+					? 'height'
+					: 'width'}: ${breakpointMin}) {
+				${css(...args)};
+			}
+		`;
 
 media.up = up;
 media.down = down;
@@ -96,19 +104,76 @@ const borderRadius = {
 };
 
 const colors: ColorType = {
-	primary: '#ff9100', // colors.orange
-	secondary: '#363e4b', // colors.brightGray
+	//Neutral
+	// These colors are used as supporting secondary colors in backgrounds, text colors, seperators, models, etc
+	neutral50: '#F9FAFB',
+	neutral100: '#F4F4F4',
+	neutral200: '#ECECEC',
+	neutral300: '#E1E1E1',
+	neutral400: '#B4B4B5',
+	neutral500: '#8E8E8E',
+	neutral600: '#676767',
+	neutral700: '#484848',
+	neutral800: '#2E2E2E',
+	neutral900: '#1C1C1C',
 
-	// background
+	//Primary
+	/* 	The primary color palette is used across all the interactive elements such as CTA’s, links, inputs, active states, etc Can also be used to denote destructive and error states. */
+	primary50: '#FFE5E5',
+	primary100: '#FFC0C2',
+	primary200: '#FF8D90',
+	primary300: '#FF676B',
+	primary400: '#E1292D',
+	primary500: '#C11E22',
+	primary600: '#9B191C',
+	primary700: '#7D1517',
+	primary800: '#500C0E',
+	primary900: '#260102',
+
+	//Success
+	/* 	These colors convey an emotion of positivity. Generally used across success, complete states. */
+	success50: '#F0FDF4',
+	success100: '#DCFCE7',
+	success200: '#BBF7D0',
+	success300: '#86EFAC',
+	success400: '#4ADE80',
+	success500: '#22C55E',
+	success600: '#16A34A',
+	success700: '#15803D',
+	success800: '#166534',
+	success900: '#14532D',
+
+	//Warning
+	/* 	These colors convey the feeling of caution. Generally used across warning states. */
+	warning50: '#FFFBEB',
+	warning100: '#FEF3C7',
+	warning200: '#FDE68A',
+	warning300: '#FCD34D',
+	warning400: '#FBBF24',
+	warning500: '#F59E0B',
+	warning600: '#D97706',
+	warning700: '#B45309',
+	warning800: '#92400E',
+	warning900: '#78350F',
+
+	//Common
+
 	nero: '#221f1f',
 
 	white: '#ffffff',
 	black: '#000000',
 	orange: '#ff9100',
 	green: '#9aca3c',
-	darkCyan: '#009688',
+	darkCyan: '#1c1d20',
 	freeSpeechRed: '#DF0000',
 	light: '#f5f5f5',
+
+	//Red
+	lightRed: '#ed3237',
+	lighterRed: '#e50a11',
+	darkRed: '#A4251A',
+	pink: '#ef8781',
+	brightPink: '#a31212',
 
 	/* blue */
 	blue: '#0071bc',
@@ -122,24 +187,25 @@ const colors: ColorType = {
 	lightGray: '#303030',
 	abbey: '#4a4d51',
 	merlin: '#3e3c39', // text color
-	cottenSeed: '#b9b8b7',
+	cottenSeed: '#f9fbfc',
 	doveGray: '#737373',
-	geyser: '#d5dce6',
-	lightGeyser: '#F2F5F8',
-	godgray: '#0f0f0f', // text color
-	mercury: '#e6e6e6',
-	brightGray: '#363e4b', // text color
-	shuttleGray: '#5e6d84', // text color
-	darkGray: '#444753',
+	geyser: '#aab7c6',
+	lightGeyser: '#848f9f',
+	godgray: '#5f738c', // text color
+	mercury: '#c8d2df',
+	brightGray: '#e5e5e5', // text color
+	shuttleGray: '#1f2937', // text color
+	darkGray: '#353f50',
+	volcanoGray: '#4b5563',
+	lightVolcanoGray: '#323437',
+	mainGray: '#d9d9d9',
+	blackGray: '#371f1f',
 
 	// with opacity
-	grayish: '#77777777',
-	whitish: '#ffffff33',
-
-	//status
-	online: '#86BB71',
-	offline: '#E38968',
-	me: '#94C2ED'
+	grayish: '#595d62',
+	whitish: '#f3f5f6',
+	reddish: '#ffdede',
+	pinkish: '#f29fa0'
 } as ColorType;
 
 const gradients: GradientType = {
@@ -150,7 +216,7 @@ const gradients: GradientType = {
  * Font Families
  */
 const fonts = {
-	primary: `'Roboto', sans-serif`
+	primary: `'Montserrat', sans-serif`
 };
 
 /**
@@ -161,13 +227,10 @@ const fontSizes = {
 	sm: '14px',
 	md: '16px',
 	lg: '18px',
-	xl: '20px',
-	'2xl': '24px',
-	'3xl': '28px',
-	'4xl': '36px',
-	'4.5xl': '42px',
-	'5xl': '48px',
-	'6xl': '64px'
+	xl: '24px',
+	'2xl': '32px',
+	'3xl': '42px',
+	'4xl': '72px'
 };
 
 /*
@@ -284,7 +347,7 @@ const sizes = {
 	'6xl': '72rem'
 };
 
-// A set of z-indeces out of the box to help control the stacking order of components.
+// A set of z-indexes out of the box to help control the stacking order of components.
 const zIndices = {
 	hide: -1,
 	auto: 'auto',
